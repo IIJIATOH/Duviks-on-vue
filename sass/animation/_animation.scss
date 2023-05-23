@@ -1,0 +1,63 @@
+@keyframes lightning {
+  0% {
+    stroke: #15261d;
+    stroke-dashoffset: 392;
+    fill: grey;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    fill: grey;
+  }
+  60% {
+    stroke-dashoffset: 0;
+    fill: $color-primary;
+    transform: scale(1, 1);
+  }
+  70% {
+    stroke-dashoffset: 0;
+    fill: $color-primary;
+    transform: scale(1.2, 1.2);
+  }
+  80% {
+    stroke-dashoffset: 0;
+    fill: $color-primary;
+    transform: scale(1, 1);
+  }
+  90% {
+    stroke-dashoffset: 0;
+    fill: $color-primary;
+    transform: scale(1.2, 1.2);
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: $color-primary;
+    transform: scale(1, 1);
+  }
+}
+@keyframes animateWave {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
+}
+@keyframes animateWave_02 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+@keyframes success {
+  0% {
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
