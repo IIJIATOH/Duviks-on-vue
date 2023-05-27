@@ -2,14 +2,20 @@
   <div class="popup-form">
     <a @click="ClosePopup" href="#" class="popup__close">&times;</a>
     <h1 class="popup-form_header">Пожалуйста заполните форму</h1>
-    <form action="/" enctype="multipart/form-data" method="post">
+    <form
+      ref="form"
+      @submit.prevent="sendEmailForm"
+      action="/"
+      enctype="multipart/form-data"
+      method="post"
+    >
       <div>
         <label for="company-name">Название организации</label
         ><input
           id="company-name"
           type="text"
           placeholder="John Smith"
-          name="companyName"
+          name="company_name"
           required
         />
       </div>
@@ -20,7 +26,7 @@
           type="email"
           placeholder="me@example.com"
           required
-          name="email"
+          name="company_email"
         />
       </div>
       <div>
@@ -43,8 +49,26 @@
   <div @click="ClosePopup" class="popup__background"></div>
 </template>
 <script>
+import emailjs from "@emailjs/browser";
 export default {
   methods: {
+    sendEmailForm() {
+      emailjs
+        .sendForm(
+          "service_7wvjs28",
+          "contact_form",
+          this.$refs.form,
+          "kfv8Ppwt8iU-B8SXZ"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
+    },
     ClosePopup() {
       this.$emit("ClosePopup");
     }

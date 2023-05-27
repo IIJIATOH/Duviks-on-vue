@@ -147,26 +147,5 @@
         товаров на утилизацию
       </p>
     </div>
-    <footer>
-      <div class="waves">
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
-      </div>
-      <ul class="social_icon">
-        <li>
-          <a href="#">
-            <ion-icon name="logo-whatsapp"></ion-icon>
-          </a>
-        </li>
-      </ul>
-      <ul class="menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <p>@2023 Все сделал Платон Михайлов, Даниил Попов никак не помогал</p>
-    </footer>
   </div>
 </template>
