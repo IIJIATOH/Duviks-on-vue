@@ -20,51 +20,14 @@
         Утилизирующая компания ДЮВИКС. <br />
         Работаем по всей Башкирии и Челябинской области.
       </h1>
-      <button class="btn btn-form">Оставить заявку</button>
+      <button @click="SwitchPopupIsOpen" class="btn btn-form">
+        Оставить заявку
+      </button>
       <div class="empty"></div>
     </div>
   </section>
-  <div class="popup-form display-none">
-    <a href="#" class="popup__close">&times;</a>
-    <h1 class="popup-form_header">Пожалуйста заполните форму</h1>
-    <form action="/" enctype="multipart/form-data" method="post">
-      <div>
-        <label for="company-name">Название организации</label>
-        <input
-          id="company-name"
-          type="text"
-          placeholder="John Smith"
-          name="companyName"
-          required
-        />
-      </div>
-      <div>
-        <label for="email">Email для контактов</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="me@example.com"
-          required
-          name="email"
-        />
-      </div>
-      <div>
-        <label for="full-name">Ваше имя и фамилия</label>
-        <input
-          id="full-name"
-          type="tel"
-          placeholder="Иван Иванович Иванов"
-          required
-          name="fullname"
-        />
-      </div>
-      <div>
-        <label for="documents">Cписок объектов на утилизацию</label>
-        <input id="documents" type="file" multiple name="avatar" />
-      </div>
-      <button class="btn" type="submit">Отправить</button>
-    </form>
-  </div>
+
+  <popup-form v-if="PopupIsOpen" @ClosePopup="SwitchPopupIsOpen"></popup-form>
   <footer>
     <div class="waves">
       <div class="wave" id="wave1"></div>
@@ -85,3 +48,22 @@
     <p>@2023 Все сделал Платон Михайлов, Даниил Попов никак не помогал</p>
   </footer>
 </template>
+
+<script>
+import PopupForm from "../popup/Popup-form.vue";
+export default {
+  data() {
+    return {
+      PopupIsOpen: false
+    };
+  },
+  components: {
+    PopupForm
+  },
+  methods: {
+    SwitchPopupIsOpen() {
+      this.PopupIsOpen = !this.PopupIsOpen;
+    }
+  }
+};
+</script>
