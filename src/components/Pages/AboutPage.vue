@@ -78,50 +78,12 @@
         450039, г.Уфа, ул. Георгия Мушникова,28
       </p>
     </div>
-    <button class="btn btn-form about-info__btn">Оставить заявку</button>
+    <button @click="SwitchPopupIsOpen" class="btn btn-form about-info__btn">
+      Оставить заявку
+    </button>
   </div>
-  <div class="popup-form display-none">
-    <a href="#" class="popup__close">&times;</a>
-    <h1 class="popup-form_header">Пожалуйста заполните форму</h1>
-    <form action="/" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="form-name" value="sign-up" />
-      <div>
-        <label for="company-name">Полное название организации</label
-        ><input
-          id="company-name"
-          type="text"
-          placeholder="John Smith"
-          name="companyName"
-          required
-        />
-      </div>
-      <div>
-        <label for="email">Email фирмы</label
-        ><input
-          id="email"
-          type="email"
-          placeholder="me@example.com"
-          required
-          name="email"
-        />
-      </div>
-      <div>
-        <label for="full-name">Ваше имя и фамилия</label
-        ><input
-          id="full-name"
-          type="tel"
-          placeholder="Иван Иванович Иванов"
-          required
-          name="fullname"
-        />
-      </div>
-      <div>
-        <label for="documents">Список вещей на утилизацию</label
-        ><input id="documents" type="file" multiple name="avatar" />
-      </div>
-      <button class="btn" type="submit">Отправить</button>
-    </form>
-  </div>
+  <popup-form v-if="PopupIsOpen" @ClosePopup="SwitchPopupIsOpen"></popup-form>
+
   <footer>
     <div class="waves">
       <div class="wave" id="wave1"></div>
@@ -144,3 +106,17 @@
     <p>@2023 Все сделал Платон Михайлов, Даниил Попов никак не помогал</p>
   </footer>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      PopupIsOpen: false
+    };
+  },
+  methods: {
+    SwitchPopupIsOpen() {
+      this.PopupIsOpen = !this.PopupIsOpen;
+    }
+  }
+};
+</script>

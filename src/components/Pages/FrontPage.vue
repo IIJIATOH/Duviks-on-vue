@@ -50,15 +50,11 @@
 </template>
 
 <script>
-import PopupForm from "../popup/Popup-form.vue";
 export default {
   data() {
     return {
       PopupIsOpen: false
     };
-  },
-  components: {
-    PopupForm
   },
   methods: {
     SwitchPopupIsOpen() {

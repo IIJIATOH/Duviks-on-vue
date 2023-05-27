@@ -5,6 +5,7 @@ import App from "./App.vue";
 import DocumentPage from "./components/Pages/DocumentPage.vue";
 import FrontPage from "./components/Pages/FrontPage.vue";
 import AboutPage from "./components/Pages/AboutPage.vue";
+import Popupform from "./components/popup/PopupForm.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,5 +17,6 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+app.component("popup-form", Popupform);
 app.use(router);
 app.mount("#app");
